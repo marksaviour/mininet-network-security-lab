@@ -1,0 +1,142 @@
+{
+    "application": {
+        "dpctl": "",
+        "ipBase": "192.168.0.0/24",
+        "netflow": {
+            "nflowAddId": "0",
+            "nflowTarget": "",
+            "nflowTimeout": "600"
+        },
+        "openFlowVersions": {
+            "ovsOf10": "1",
+            "ovsOf11": "0",
+            "ovsOf12": "0",
+            "ovsOf13": "0"
+        },
+        "sflow": {
+            "sflowHeader": "128",
+            "sflowPolling": "30",
+            "sflowSampling": "400",
+            "sflowTarget": ""
+        },
+        "startCLI": "1",
+        "switchType": "ovs",
+        "terminalType": "xterm"
+    },
+    "controllers": [
+        {
+            "opts": {
+                "controllerProtocol": "tcp",
+                "controllerType": "ref",
+                "hostname": "c0",
+                "remoteIP": "127.0.0.1",
+                "remotePort": 6633
+            },
+            "x": "400.0",
+            "y": "50.0"
+        }
+    ],
+    "hosts": [
+        {
+            "number": "1",
+            "opts": {
+                "defaultRoute": "via 192.168.2.1",
+                "hostname": "TheInternet",
+                "ip": "192.168.2.100/24",
+                "nodeNum": 1,
+                "sched": "host"
+            },
+            "x": "100.0",
+            "y": "250.0"
+        },
+        {
+            "number": "2",
+            "opts": {
+                "defaultRoute": "via 192.168.0.1",
+                "hostname": "PC1",
+                "ip": "192.168.0.2/24",
+                "nodeNum": 2,
+                "sched": "host"
+            },
+            "x": "450.0",
+            "y": "450.0"
+        },
+        {
+            "number": "3",
+            "opts": {
+                "defaultRoute": "via 192.168.0.1",
+                "hostname": "PC2",
+                "ip": "192.168.0.3/24",
+                "nodeNum": 3,
+                "sched": "host"
+            },
+            "x": "575.0",
+            "y": "450.0"
+        },
+        {
+            "number": "4",
+            "opts": {
+                "defaultRoute": "via 192.168.0.1",
+                "hostname": "PC3",
+                "ip": "192.168.0.4/24",
+                "nodeNum": 4,
+                "sched": "host"
+            },
+            "x": "700.0",
+            "y": "450.0"
+        }
+    ],
+    "links": [
+        {
+            "dest": "s1",
+            "opts": {},
+            "src": "PC1"
+        },
+        {
+            "dest": "s1",
+            "opts": {},
+            "src": "PC2"
+        },
+        {
+            "dest": "s1",
+            "opts": {},
+            "src": "PC3"
+        },
+        {
+            "dest": "r2",
+            "opts": {},
+            "src": "TheInternet"
+        },
+        {
+            "dest": "s1",
+            "opts": {},
+            "src": "r2"
+        }
+    ],
+    "switches": [
+        {
+            "number": "1",
+            "opts": {
+                "controllers": [
+                    "c0"
+                ],
+                "hostname": "s1",
+                "nodeNum": 1,
+                "switchType": "default"
+            },
+            "x": "575.0",
+            "y": "300.0"
+        },
+        {
+            "number": "2",
+            "opts": {
+                "hostname": "r2",
+                "nodeNum": 2,
+                "switchType": "legacyRouter"
+            },
+            "x": "373.0",
+            "y": "249.0"
+        }
+    ],
+    "version": "2"
+}
